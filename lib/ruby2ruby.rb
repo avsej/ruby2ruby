@@ -509,8 +509,8 @@ class Ruby2Ruby < SexpProcessor
     body = exp.empty? ? nil : process(exp.shift)
 
     args = case args
-           when 0 then
-             " ||"
+           when 0, nil then
+             ""
            else
              a = process(args)[1..-2]
              a = " |#{a}|" unless a.empty?
